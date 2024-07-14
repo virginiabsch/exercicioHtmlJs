@@ -4,21 +4,25 @@ form.addEventListener('submit', function(e) {
     let formEvalido = false;
     e.preventDefault();
 
-    const form = document.getElementById('form-matricula');
-    const campoA = document.getElementById('campo-A')
-    const campoB = document.getElementById('campo-B')
-    const mensagemSucesso = `Matrícula solicitada com sucesso!`
+    //obtendo valores dos inputs
+    const campoA = document.getElementById('campo-A').value;
+    const campoB = document.getElementById('campo-B').value;
 
-    if (campoB.value > campoA.value) {
-    alert(mensagemSucesso)
-    }
+    //convertendo valores para números inteiros
+    const campoA = parseInt(campoA);
+    const campoB = parseInt(campoB);
 
-    else (campoB.value < campoA.value); {
-    alert("O ano de matrícula precisa ser superior ao ano de nascimento")
-    } 
+    //verificando conversão
+    if (!isNaN(campoA) && !isNaN(campoB)) {
 
-    else if (campoB.value = campoA.value); {
-    alert("O ano de matrícula precisa ser superior ao ano de nascimento")
+        //comparando números inteiros
+        if (campoB > campoA) {
+            alert("Matrícula realizada com sucesso");
+        } else if (campoA > campoB) {
+            alert ("O ano de matrícula deve ser posterior ao ano de nascimento");
+        } else {
+            alert("O ano de matrícula deve ser posterior ao ano de nascimento");
+        }    
     }
 })
 console.log(form);
